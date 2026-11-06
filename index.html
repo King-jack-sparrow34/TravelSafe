@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f766e">
+<title>TravelSafe – Your Safe Travel Companion</title>
+<style>
+:root{--bg:#f3f6fb;--cd:#fff;--tx:#0f1b2d;--mu:#5d6b82;--bd:#e2e8f1;--pr:#0d9488;--pr2:#d9f5f0;--sos:#e11d48;--sh:0 8px 30px rgba(15,27,45,.09);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a0f1a;--cd:#121a2a;--tx:#eaf0fa;--mu:#93a1ba;--bd:#1f2b42;--pr:#2dd4bf;--pr2:#0f2f31;--sh:0 8px 30px rgba(0,0,0,.45)}}
+:root[data-theme="dark"]{--bg:#0a0f1a;--cd:#121a2a;--tx:#eaf0fa;--mu:#93a1ba;--bd:#1f2b42;--pr:#2dd4bf;--pr2:#0f2f31;--sh:0 8px 30px rgba(0,0,0,.45)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0}
+body{background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.5}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+button{font:inherit;color:inherit;cursor:pointer}a{color:inherit;text-decoration:none}
+.wrap{max-width:920px;margin:auto}
+.hero{padding:30px 20px 80px;color:#fff;background:radial-gradient(800px 360px at 90% -10%,rgba(34,211,238,.45),transparent),radial-gradient(600px 360px at 0 0,rgba(52,211,153,.35),transparent),linear-gradient(135deg,#0f766e,#0e7490 55%,#1e3a8a)}
+.row0{display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:15px;font-weight:700;letter-spacing:.3px;display:flex;gap:8px;align-items:center}
+.th{background:rgba(255,255,255,.18);border:0;border-radius:50%;width:38px;height:38px;color:#fff;font-size:17px}
+h1{font-size:clamp(30px,7vw,46px);line-height:1.1;margin:22px 0 8px;font-weight:800;letter-spacing:-.5px}h1 span{color:#a7f3d0}
+.sub{margin:0;opacity:.9;max-width:520px}
+.sbar{margin-top:20px;display:flex;align-items:center;gap:10px;background:#fff;border-radius:16px;padding:0 16px;box-shadow:0 12px 30px rgba(0,0,0,.25)}
+.sbar input{flex:1;border:0;outline:0;padding:16px 0;font-size:16px;background:none;color:#0f1b2d;min-width:0}
+.stats{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.stat{background:rgba(255,255,255,.16);border-radius:20px;padding:6px 13px;font-size:13px;backdrop-filter:blur(6px)}
+main{max-width:920px;margin:-44px auto 0;padding:0 16px 130px;position:relative}
+.flt{display:flex;gap:8px;background:var(--cd);padding:8px;border-radius:16px;box-shadow:var(--sh);margin-bottom:16px}
+.fb{flex:1;border:0;background:none;padding:10px;border-radius:11px;font-weight:600;color:var(--mu)}
+.fb.on{background:var(--pr);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.rg{display:flex;gap:14px;align-items:center;text-align:left;width:100%;background:var(--cd);border:1px solid var(--bd);border-radius:18px;padding:14px;box-shadow:var(--sh);transition:transform .18s,border-color .18s;animation:up .45s both;animation-delay:var(--d)}
+.rg:hover,.rg:active{transform:translateY(-3px);border-color:var(--pr)}
+.ic{flex:none;width:56px;height:56px;border-radius:16px;display:grid;place-items:center;font-size:28px;background:linear-gradient(135deg,hsl(var(--h) 80% 55%),hsl(calc(var(--h) + 35) 75% 42%))}
+.rg b{display:block;font-size:17px}.rg small{color:var(--mu)}
+.pill{display:inline-block;margin-top:4px;font-size:11px;font-weight:700;background:var(--pr2);color:var(--pr);padding:2px 9px;border-radius:20px}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);padding:10px 0}
+.bk{border:1px solid var(--bd);background:var(--cd);border-radius:12px;padding:9px 16px;font-weight:600}
+.dh{display:flex;gap:16px;align-items:center;border-radius:22px;padding:22px;color:#fff;margin:6px 0 16px;background:linear-gradient(135deg,hsl(var(--h) 75% 40%),hsl(calc(var(--h) + 40) 70% 28%));box-shadow:var(--sh);animation:up .4s both}
+.dh .e{font-size:54px}.dh h2{margin:0;font-size:27px}.dh p{margin:2px 0 0;opacity:.9;font-size:14px}
+h3.t{margin:20px 0 10px;font-size:15px;color:var(--mu);text-transform:uppercase;letter-spacing:.8px}
+.pk{display:flex;gap:12px;align-items:center;width:100%;text-align:left;background:var(--cd);border:2px solid var(--bd);border-radius:16px;padding:14px;margin-bottom:10px;transition:.18s}
+.pk.on{border-color:var(--pr);background:var(--pr2);box-shadow:var(--sh)}
+.rd{flex:none;width:22px;height:22px;border-radius:50%;border:2px solid var(--bd);display:grid;place-items:center}
+.pk.on .rd{border-color:var(--pr);background:var(--pr)}.pk.on .rd::after{content:"✓";color:#fff;font-size:13px;font-weight:800}
+.pk b{display:block}.pk small{color:var(--mu)}.pk .fr{margin-left:auto;background:var(--pr);color:#fff;font-size:11px;font-weight:800;padding:3px 9px;border-radius:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:4px 0 10px;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+.tb{flex:none;border:1px solid var(--bd);background:var(--cd);padding:9px 15px;border-radius:22px;font-size:14px;font-weight:600;white-space:nowrap}
+.tb.on{background:var(--tx);color:var(--bg);border-color:var(--tx)}
+.pn{background:var(--cd);border:1px solid var(--bd);border-radius:20px;padding:18px;box-shadow:var(--sh);animation:up .3s both}
+.lead{margin:0 0 14px;font-size:17px;font-weight:600}
+.phs{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.phc{text-align:left;background:var(--bg);border:1px solid var(--bd);border-radius:14px;padding:12px}
+.phc small{color:var(--mu);display:block}.phc b{font-size:17px;display:block;margin:2px 0}.phc i{font-size:11px;color:var(--pr);font-style:normal}
+.li{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--bd)}.li:last-child{border:0}
+.li .k{flex:none;width:28px;height:28px;border-radius:9px;display:grid;place-items:center;background:var(--pr2);color:var(--pr);font-size:14px}
+.ln{display:flex;justify-content:space-between;align-items:center;gap:10px}.ln span:last-child{color:var(--pr);font-size:13px;font-weight:700;white-space:nowrap}
+.mg{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
+.mb{background:linear-gradient(135deg,#0d9488,#0e7490);color:#fff;border-radius:14px;padding:16px 12px;text-align:center;font-weight:700}
+.nums{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.nm{background:linear-gradient(135deg,#f43f5e,#be123c);color:#fff;border-radius:16px;padding:16px;text-align:center}.nm small{display:block;opacity:.9}.nm b{font-size:26px}
+.note{color:var(--mu);font-size:12.5px;margin:12px 0 0}
+#sos{position:fixed;right:16px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:25;border:0;color:#fff;font-weight:800;font-size:17px;padding:16px 26px;border-radius:40px;background:linear-gradient(135deg,#fb7185,#e11d48);box-shadow:0 8px 24px rgba(225,29,72,.5);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(225,29,72,.55)}70%{box-shadow:0 0 0 16px rgba(225,29,72,0)}100%{box-shadow:0 0 0 0 rgba(225,29,72,0)}}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+#md{position:fixed;inset:0;background:rgba(5,10,20,.6);backdrop-filter:blur(4px);display:none;align-items:flex-end;justify-content:center;z-index:40}#md.on{display:flex}
+.sh{background:var(--cd);width:100%;max-width:520px;border-radius:24px 24px 0 0;padding:22px;max-height:92%;overflow:auto;animation:up .3s both}
+.sh h2{margin:0;color:var(--sos)}.sh input{width:100%;padding:12px;margin:5px 0;border:1px solid var(--bd);border-radius:12px;background:var(--bg);color:var(--tx);font-size:16px}
+.bt{border:0;border-radius:12px;padding:12px 16px;font-weight:700;margin:6px 6px 0 0;background:var(--bd)}.bt.p{background:var(--pr);color:#fff}
+#hb{display:block;width:100%;position:relative;overflow:hidden;margin:14px 0 4px;padding:20px;border:0;border-radius:18px;color:#fff;font-size:18px;font-weight:800;background:linear-gradient(135deg,#fb7185,#be123c);user-select:none;-webkit-user-select:none;touch-action:manipulation}
+#hb::after{content:"";position:absolute;inset:0;background:rgba(255,255,255,.35);transform:scaleX(0);transform-origin:left}#hb.go::after{transform:scaleX(1);transition:transform 1.8s linear}
+#hb span{position:relative;z-index:1}
+.ct{display:flex;justify-content:space-between;align-items:center;padding:8px 0;font-size:14px}
+#loc{padding:10px 12px;border-radius:12px;background:var(--bg);font-size:14px;color:var(--mu);margin:10px 0}
+#toast{position:fixed;left:50%;bottom:calc(90px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--tx);color:var(--bg);padding:10px 18px;border-radius:22px;font-size:14px;z-index:60;opacity:0;pointer-events:none;transition:opacity .25s}#toast.on{opacity:1}
+</style></head><body>
+<div id="home">
+<header class="hero"><div class="wrap">
+<div class="row0"><div class="logo">🧭 TravelSafe</div><button class="th" data-a="th" aria-label="Toggle theme">🌓</button></div>
+<h1>Travel smart.<br><span>Stay safe.</span></h1>
+<p class="sub">Local language, rules, stays and one-tap emergency help for every destination.</p>
+<div class="sbar"><span>🔍</span><input id="q" type="search" placeholder="Search Kerala, Goa, Thailand, Japan…" autocomplete="off"></div>
+<div class="stats"><span class="stat">🌍 8 regions</span><span class="stat">🎁 3 free packages</span><span class="stat">🆘 SOS + GPS</span></div>
+</div></header>
+<main><div class="flt"><button class="fb on" data-a="f" data-f="all">All</button><button class="fb" data-a="f" data-f="India">🇮🇳 India</button><button class="fb" data-a="f" data-f="International">🌐 International</button></div>
+<div class="grid" id="grid"></div></main>
+</div>
+<div id="view" hidden><main style="margin-top:0;padding-top:6px"><div class="top"><button class="bk" data-a="bk">← All regions</button></div><div id="dv"></div></main></div>
+<button id="sos" data-a="sos">🆘 SOS</button>
+<div id="md"><div class="sh">
+<h2>Emergency SOS</h2><p class="note" style="margin:2px 0 0">Sends your GPS location to your trusted contacts.</p>
+<div id="loc">Getting your location…</div>
+<button class="bt p" data-a="gps">📍 Refresh GPS</button><button class="bt" data-a="cpm">Copy message</button>
+<h3 class="t">Trusted contacts</h3><div id="cl"></div>
+<input id="cn" placeholder="Name"><input id="cp" type="tel" placeholder="Phone with country code">
+<button class="bt" data-a="add">+ Add contact</button>
+<button id="hb" type="button"><span>HOLD 2 SECONDS TO SEND SOS</span></button>
+<button class="bt" data-a="call">📞 Call local emergency</button><button class="bt" data-a="cls">Close</button>
+</div></div>
+<div id="toast"></div>
+<script>
+var R=[
+{n:"Kerala",t:"India",e:"🌴",h:160,l:"Malayalam (English widely used)",ph:[["Hello","Namaskaram"],["Thank you","Nanni"],["Help!","Sahayikkoo!"],["How much?","Ethra aanu?"]],ru:["Carry a photo ID; foreigners keep passport and visa copies.","Alcohol is sold only at licensed outlets.","Dress modestly at temples and remove footwear."],i:["Best season: October to March.","Monsoon (June–September) can disrupt backwater travel.","Book houseboats with licensed operators."],s:["Homestays in Munnar and Alleppey","Budget hotels in Kochi","Licensed houseboat stays"],em:[["Emergency","112"],["Ambulance","108"],["Police","100"]]},
+{n:"Rajasthan",t:"India",e:"🏰",h:28,l:"Rajasthani and Hindi (English in tourist areas)",ph:[["Hello","Namaste"],["Thank you","Dhanyavaad"],["Help!","Madad karo!"],["How much?","Kitne ka hai?"]],ru:["Entry tickets are required at forts and monuments.","Camera fees may apply inside heritage sites.","Avoid drones near forts and military areas."],i:["Best season: October to March.","Summers are extremely hot; carry water.","Use prepaid taxis or app cabs."],s:["Heritage havelis in Jaipur and Udaipur","Budget guesthouses in Jodhpur","Desert camps near Jaisalmer"],em:[["Emergency","112"],["Ambulance","108"],["Tourist helpline","1363"]]},
+{n:"Goa",t:"India",e:"🏖️",h:195,l:"Konkani, Marathi and English",ph:[["Hello","Namaskar"],["Thank you","Dev borem korum"],["Help!","Madat kor!"],["How much?","Kitle?"]],ru:["Drinking and littering on beaches are regulated.","Water sports must use licensed operators.","Helmets are mandatory on two-wheelers."],i:["Best season: November to February.","Swim only at lifeguard-patrolled beaches.","Monsoon closes many beach shacks."],s:["Beach huts and hostels","Mid-range hotels in Calangute and Baga","Quiet stays in South Goa"],em:[["Emergency","112"],["Ambulance","108"],["Police","100"]]},
+{n:"Andhra Pradesh",t:"India",e:"🛕",h:10,l:"Telugu (English and Hindi in cities)",ph:[["Hello","Namaskaram"],["Thank you","Dhanyavaadalu"],["Help!","Sahayam cheyandi!"],["How much?","Entha?"]],ru:["Follow dress and queue rules at temples.","Book popular darshan slots in advance.","Respect restrictions in forest and wildlife zones."],i:["Best season: October to February.","Visit Araku Valley, Tirupati and Vijayawada.","Carry cash for small vendors."],s:["Hotels in Vijayawada and Visakhapatnam","Temple-town lodges and guest houses","Hill stays at Araku"],em:[["Emergency","112"],["Ambulance","108"],["Police","100"]]},
+{n:"Thailand",t:"International",e:"🐘",h:290,l:"Thai (English in tourist areas)",ph:[["Hello","Sawasdee"],["Thank you","Khop khun"],["Help!","Chuay duay!"],["How much?","Tao rai?"]],ru:["Disrespecting the monarchy is a serious offence.","Cover shoulders and knees at temples.","Check current rules on vaping devices."],i:["Cool season: November to February.","Use metered taxis or ride apps.","Check passport validity before entry."],s:["Hostels in Bangkok","Beach bungalows in Phuket and Krabi","Mid-range city hotels"],em:[["Police","191"],["Tourist Police","1155"],["Ambulance","1669"]]},
+{n:"UAE (Dubai)",t:"International",e:"🏙️",h:45,l:"Arabic (English widely spoken)",ph:[["Hello","Marhaba"],["Thank you","Shukran"],["Help!","Musaada!"],["How much?","Kam?"]],ru:["Public displays of affection are discouraged.","Alcohol only in licensed venues.","Do not photograph people without permission."],i:["Best season: November to March.","Dress modestly in malls and public places.","Metro and taxis are reliable."],s:["Budget hotels in Deira","Business hotels in Bur Dubai","Coastal resorts"],em:[["Police","999"],["Ambulance","998"],["Fire","997"]]},
+{n:"Japan",t:"International",e:"🗻",h:340,l:"Japanese (limited English outside cities)",ph:[["Hello","Konnichiwa"],["Thank you","Arigatou"],["Help!","Tasukete!"],["How much?","Ikura desu ka?"]],ru:["Tipping is not expected.","Remove shoes where indicated.","Keep voices low on trains."],i:["Spring and autumn are most popular.","A rail or IC card makes transit easy.","Carry some cash; small places may not take cards."],s:["Capsule hotels and hostels","Business hotels","Traditional ryokan inns"],em:[["Police","110"],["Ambulance / Fire","119"]]},
+{n:"France (Paris)",t:"International",e:"🗼",h:225,l:"French (English in tourist areas)",ph:[["Hello","Bonjour"],["Thank you","Merci"],["Help!","Au secours!"],["How much?","Combien ça coûte?"]],ru:["Greet staff with “Bonjour” in shops.","Carry ID; police may ask for it.","Watch for pickpockets near major sights."],i:["Spring and early autumn are pleasant.","Metro ticket bundles are cheaper.","Many museums close one day a week."],s:["Hostels and budget hotels","Central hotels in Le Marais","Apartment rentals"],em:[["Emergency","112"],["Ambulance","15"],["Police","17"]]}
+];
+var P=[{n:"Essential Starter",d:"Language, rules and key facts at a glance.",k:"l"},{n:"Stay & Comfort",d:"Stay options, etiquette and local transport.",k:"s"},{n:"Safety Plus",d:"Emergency numbers, SOS and trusted contacts.",k:"e"}];
+var TB=[["l","🗣️ Language"],["r","⚖️ Rules"],["i","ℹ️ Info"],["s","🏨 Stays"],["m","🗺️ Maps"],["e","🚨 Emergency"]];
+var $=function(i){return document.getElementById(i)},F="all",cur=null,pj=0,tk="l",gps=null,tt;
+function ls(k,v){try{if(v===undefined)return JSON.parse(localStorage.getItem(k)||"null");localStorage.setItem(k,JSON.stringify(v))}catch(e){return null}}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function toast(m){var t=$("toast");t.textContent=m;t.classList.add("on");clearTimeout(tt);tt=setTimeout(function(){t.classList.remove("on")},1800)}
+function grid(){var q=$("q").value.toLowerCase().trim(),h="";
+R.forEach(function(r,i){if((F=="all"||r.t==F)&&(!q||(r.n+r.t+r.l).toLowerCase().indexOf(q)>-1))h+='<button class="rg" data-a="rg" data-i="'+i+'" style="--h:'+r.h+';--d:'+(i*50)+'ms"><span class="ic">'+r.e+'</span><span><b>'+esc(r.n)+'</b><small>'+esc(r.l.split(" (")[0])+'</small><br><span class="pill">'+r.t+' · 3 free packages</span></span></button>'});
+$("grid").innerHTML=h||'<p class="note">No region found. Try another name.</p>'}
+function mq(r,q){return"https://www.google.com/maps/search/"+encodeURIComponent(q+" in "+r.n)}
+function panel(r,k){var h="",L=function(a,ic){return a.map(function(x){return'<div class="li"><span class="k">'+ic+'</span><span>'+esc(x)+'</span></div>'}).join("")},A='target="_blank" rel="noopener"';
+if(k=="l")h='<p class="lead">'+esc(r.l)+'</p><div class="phs">'+r.ph.map(function(x){return'<button class="phc" data-a="cp2" data-c="'+esc(x[1])+'"><small>'+x[0]+'</small><b>'+esc(x[1])+'</b><i>Tap to copy</i></button>'}).join("")+'</div>';
+if(k=="r")h=L(r.ru,"⚖️");if(k=="i")h=L(r.i,"ℹ️");
+if(k=="s")h=r.s.map(function(x){return'<a class="li ln" '+A+' href="'+mq(r,x.split(" in ")[0])+'"><span>🏨 '+esc(x)+'</span><span>Find ↗</span></a>'}).join("");
+if(k=="m")h='<div class="mg">'+[["🧭 Explore","tourist places"],["🏥 Hospitals","hospitals"],["🚓 Police","police stations"],["🏨 Stays","hotels"],["💊 Pharmacies","pharmacies"],["🏧 ATMs","ATMs"]].map(function(x){return'<a class="mb" '+A+' href="'+mq(r,x[1])+'">'+x[0]+'</a>'}).join("")+'</div><p class="note">Tip: in the Google Maps app, search the region and use “Download offline map” to save it for use without internet.</p>';
+if(k=="e")h='<div class="nums">'+r.em.map(function(x){return'<a class="nm" href="tel:'+x[1].replace(/[^0-9+]/g,"")+'"><small>'+esc(x[0])+'</small><b>'+esc(x[1])+'</b></a>'}).join("")+'</div><p class="note">Tap a number to call. For danger, press the red SOS button to alert your trusted contacts.</p>';
+return h}
+function draw(){var r=R[cur];
+$("dv").innerHTML='<div class="dh" style="--h:'+r.h+'"><span class="e">'+r.e+'</span><div><h2>'+esc(r.n)+'</h2><p>'+r.t+' · '+esc(r.l)+'</p></div></div><h3 class="t">Choose a free package</h3>'
++P.map(function(p,j){return'<button class="pk'+(j==pj?" on":"")+'" data-a="pk" data-j="'+j+'"><span class="rd"></span><span><b>'+p.n+'</b><small>'+p.d+'</small></span><span class="fr">FREE</span></button>'}).join("")
++'<h3 class="t">'+P[pj].n+' guide</h3><div class="tabs">'+TB.map(function(t){return'<button class="tb'+(t[0]==tk?" on":"")+'" data-a="tb" data-k="'+t[0]+'">'+t[1]+'</button>'}).join("")+'</div><div class="pn" id="pn">'+panel(r,tk)+'</div>'}
+function show(i){cur=i;pj=0;tk=P[0].k;$("home").hidden=true;$("view").hidden=false;draw();window.scrollTo(0,0)}
+function contacts(){var c=ls("ts_c")||[];$("cl").innerHTML=c.length?c.map(function(x,i){return'<div class="ct"><span>👤 '+esc(x.n)+" · "+esc(x.p)+'</span><button class="bt" style="margin:0;padding:4px 10px" data-a="del" data-d="'+i+'">✕</button></div>'}).join(""):'<p class="note" style="margin:0">No contacts yet. Add someone you trust.</p>'}
+function text(){return"SOS! I need help. "+(gps?"My location: https://maps.google.com/?q="+gps.lat+","+gps.lng:"Location unavailable.")+" – sent via TravelSafe"}
+function getGps(){$("loc").textContent="Locating…";if(!navigator.geolocation){$("loc").textContent="GPS is not available on this device.";return}
+navigator.geolocation.getCurrentPosition(function(p){gps={lat:p.coords.latitude.toFixed(5),lng:p.coords.longitude.toFixed(5)};$("loc").textContent="📍 "+gps.lat+", "+gps.lng},function(){$("loc").textContent="Could not get GPS. Allow location permission and refresh."},{enableHighAccuracy:true,timeout:10000})}
+function send(){var c=ls("ts_c")||[];$("hb").classList.remove("go");if(!c.length){toast("Add a trusted contact first");return}
+location.href="sms:"+c.map(function(x){return x.p.replace(/[^0-9+]/g,"")}).join(",")+"?body="+encodeURIComponent(text())}
+function copy(t){try{navigator.clipboard.writeText(t).then(function(){toast("Copied")},function(){toast("Copy not allowed here")})}catch(e){toast("Copy not allowed here")}}
+var ht;function hold(on){clearTimeout(ht);$("hb").classList.toggle("go",on);if(on)ht=setTimeout(send,1800)}
+var hb=$("hb");hb.addEventListener("pointerdown",function(){hold(1)});["pointerup","pointerleave","pointercancel"].forEach(function(e){hb.addEventListener(e,function(){hold(0)})});
+hb.addEventListener("contextmenu",function(e){e.preventDefault()});hb.addEventListener("keydown",function(e){if(e.key=="Enter")send()});
+$("q").oninput=function(){$("view").hidden=true;$("home").hidden=false;grid()};
+document.addEventListener("click",function(e){var t=e.target.closest("[data-a]");if(!t)return;var a=t.dataset.a;
+if(a=="rg")show(+t.dataset.i);
+else if(a=="bk"){$("view").hidden=true;$("home").hidden=false}
+else if(a=="f"){F=t.dataset.f;document.querySelectorAll(".fb").forEach(function(b){b.classList.toggle("on",b==t)});grid()}
+else if(a=="pk"){pj=+t.dataset.j;tk=P[pj].k;draw()}
+else if(a=="tb"){tk=t.dataset.k;draw()}
+else if(a=="cp2")copy(t.dataset.c);
+else if(a=="th"){var d=document.documentElement,x=d.dataset.theme||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");d.dataset.theme=x=="dark"?"light":"dark"}
+else if(a=="sos"){$("md").classList.add("on");contacts();getGps()}
+else if(a=="cls")$("md").classList.remove("on");
+else if(a=="gps")getGps();
+else if(a=="cpm")copy(text());
+else if(a=="add"){var n=$("cn").value.trim(),p=$("cp").value.trim();if(!n||!p){toast("Enter a name and phone number");return}var c=ls("ts_c")||[];c.push({n:n,p:p});ls("ts_c",c);$("cn").value="";$("cp").value="";contacts()}
+else if(a=="del"){var c2=ls("ts_c")||[];c2.splice(+t.dataset.d,1);ls("ts_c",c2);contacts()}
+else if(a=="call"){location.href="tel:"+(cur!==null?R[cur].em[0][1]:"112").replace(/[^0-9+]/g,"")}});
+grid();
+</script></body></html>
